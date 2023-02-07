@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
 
 /**
@@ -23,7 +22,6 @@ public class App extends Application {
         scene = new Scene(loadFXML("startView"), 640, 480);
         scene.getStylesheets().add(loadCSS("startView"));
         stage.setScene(scene);
-        //scene.getStylesheets().add(getClass().getResource("css/startView.css").toExternalForm());
         stage.show();
     }
 
