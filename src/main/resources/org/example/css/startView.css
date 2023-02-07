@@ -1,0 +1,16 @@
+.root{
+    -fx-background-color: #445661;
+}
+
+.button {
+    -fx-background-color:#7891a1;
+}
+
+.button:hover {
+    -fx-background-color:#a5b6c0;
+}
+
+#buttonBox{
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
