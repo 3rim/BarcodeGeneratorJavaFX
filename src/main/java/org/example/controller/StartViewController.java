@@ -27,6 +27,11 @@ public class StartViewController  implements Initializable {
         switchToInputView();
     }
 
+    /**
+     * TODO: Is called everytime startView is switched to! Why so?
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {

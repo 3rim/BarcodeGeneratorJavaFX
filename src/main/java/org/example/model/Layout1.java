@@ -6,6 +6,9 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfPTable;
 
+/**
+ * TODO: Rename class
+ */
 public class Layout1 implements ITableLayout{
 
     private Document document;
