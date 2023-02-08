@@ -23,7 +23,7 @@ public class Layout1 implements ITableLayout{
         table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
         table.getDefaultCell().setMinimumHeight(84f);
         table.getDefaultCell().setPadding(5);
-        table.getDefaultCell().setBorderColor(BaseColor.BLACK);
+        table.getDefaultCell().setBorderColor(BaseColor.WHITE);
 
     }
 
