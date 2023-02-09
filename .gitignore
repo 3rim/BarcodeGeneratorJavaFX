@@ -2,7 +2,9 @@
 .idea/
 *.iml
 *.iws
+*.pdf
 
 # Maven
 log/
 target
+
