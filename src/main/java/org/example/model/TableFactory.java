@@ -18,8 +18,6 @@ public class TableFactory {
             break;
             case "LAYOUT2": table = new Layout2();
         }
-
-        System.out.println("Created:" +tableType);
         return table;
     }
 }

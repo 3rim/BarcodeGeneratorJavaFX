@@ -12,15 +12,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import org.example.App;
 import org.example.model.ITableLayout;
 import org.example.model.TableFactory;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import static com.itextpdf.text.Annotation.FILE;
 
 public class InputViewController {
     private static String FILE ="src/main/resources/FirstPdf.pdf";
@@ -55,6 +56,7 @@ public class InputViewController {
     @FXML
     private void onEnter(ActionEvent event){
         addButton();
+        System.out.println(this);
     }
 
     @FXML
@@ -65,15 +67,16 @@ public class InputViewController {
     @FXML
     private void generatePDF()  {
         try {
-            System.out.println(this);
             //TODO a: If tableLayout is not static tableLayout becomes null, why?
-            if(tableLayout == null)
-                System.out.println("NULL");
+
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setInitialFileName("newFile.pdf");
+            fileChooser.setInitialDirectory(new File("C:\\Users\\erim\\Desktop")); //TODO:
+            File file = fileChooser.showSaveDialog(new Stage());
 
             Document document = tableLayout.getDocument();
-            System.out.println(document);
             PdfPTable table = tableLayout.getTable();
-            PdfWriter pdfWriter = PdfWriter.getInstance(document,new FileOutputStream(FILE));
+            PdfWriter pdfWriter = PdfWriter.getInstance(document,new FileOutputStream(file));
             document.open();
             PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
 
@@ -88,10 +91,10 @@ public class InputViewController {
                 }
             }
             else {
-
+                listView.getItems().forEach(table::addCell);
             }
 
-            //Fill the row if there are less cells than column. Otherwise no pages exeption is thrown
+            //Fill the row if there are less cells than columns. Otherwise no pages exception is thrown
             if(listView.getItems().size() <4)
                 table.completeRow();
 
@@ -104,10 +107,7 @@ public class InputViewController {
     }
 
     public void createLayout(String layoutType){
-        System.out.println(layoutType);
         tableLayout = tableFactory.createTable(layoutType);
-        System.out.println(tableLayout);
-        System.out.println(this);
     }
 
     public void test(){

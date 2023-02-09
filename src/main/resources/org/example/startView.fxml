@@ -15,8 +15,8 @@
       </Text>
       <VBox fx:id="buttonBox" layoutX="223.0" layoutY="106.0" prefHeight="146.0" prefWidth="153.0">
          <children>
-            <Button mnemonicParsing="false" text="Layout 1" onAction="#handleButtonClick" />
-            <Button mnemonicParsing="false" text="Layout 2" onAction="#handleButtonClick"/>
+            <Button mnemonicParsing="false" onAction="#handleButtonClick" text="Layout1" />
+            <Button mnemonicParsing="false" onAction="#handleButtonClick" text="Layout2" />
          </children>
       </VBox>
    </children>
