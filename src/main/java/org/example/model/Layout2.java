@@ -17,4 +17,14 @@ public class Layout2 implements ITableLayout{
     public Document getDocument() {
         return null;
     }
+
+    @Override
+    public PdfPTable getNewTable() {
+        return null;
+    }
+
+    @Override
+    public Document getNewDocument() {
+        return null;
+    }
 }

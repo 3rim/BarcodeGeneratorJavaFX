@@ -16,6 +16,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import org.example.App;
 import org.example.model.ITableLayout;
+import org.example.model.Layout1;
 import org.example.model.TableFactory;
 
 import java.io.File;
@@ -23,11 +24,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class InputViewController {
+public class  InputViewController {
     private static String FILE ="src/main/resources/FirstPdf.pdf";
 
     @FXML
-    private ListView<String> listView;
+    private  ListView<String> listView;
     @FXML
     private TextField inputField;
     @FXML
@@ -56,7 +57,6 @@ public class InputViewController {
     @FXML
     private void onEnter(ActionEvent event){
         addButton();
-        System.out.println(this);
     }
 
     @FXML
@@ -69,13 +69,20 @@ public class InputViewController {
         try {
             //TODO a: If tableLayout is not static tableLayout becomes null, why?
 
+            //FileChooser settings
+            FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
             FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(extFilter);
             fileChooser.setInitialFileName("newFile.pdf");
-            fileChooser.setInitialDirectory(new File("C:\\Users\\erim\\Desktop")); //TODO:
             File file = fileChooser.showSaveDialog(new Stage());
+            //No File/destination chosen
+            if(file ==null)
+                return;
 
-            Document document = tableLayout.getDocument();
-            PdfPTable table = tableLayout.getTable();
+            //IText Pdf settings
+            Document document = tableLayout.getNewDocument();
+            PdfPTable table = tableLayout.getNewTable();
+
             PdfWriter pdfWriter = PdfWriter.getInstance(document,new FileOutputStream(file));
             document.open();
             PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
@@ -93,10 +100,13 @@ public class InputViewController {
             else {
                 listView.getItems().forEach(table::addCell);
             }
+            /*  Fill the row if there are less cells than columns. Otherwise no pages exception is thrown
+                Furthermore; If a table has e.g 4 Columns but in the last row are less than 4 Cells filled with Data
+                it would not fill that row with data -->therefore "completeRow()" fills empty Cells to it!
+             */
+            table.completeRow();
 
-            //Fill the row if there are less cells than columns. Otherwise no pages exception is thrown
-            if(listView.getItems().size() <4)
-                table.completeRow();
+            //listView.getItems().clear();
 
             document.add(table);
             document.close();

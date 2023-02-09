@@ -8,4 +8,7 @@ public interface ITableLayout {
     PdfPTable getTable();
     Document getDocument();
 
+    PdfPTable getNewTable();
+    Document getNewDocument();
+
 }

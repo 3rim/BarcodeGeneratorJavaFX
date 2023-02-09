@@ -11,20 +11,11 @@ import com.itextpdf.text.pdf.PdfPTable;
  */
 public class Layout1 implements ITableLayout{
 
-    private Document document;
+    private final Document document= new Document(PageSize.A4,0,0,0,0);
     private PdfPTable table;
 
     public Layout1(){
-        document = new Document(PageSize.A4,0,0,0,0);
-        table = new PdfPTable(4);
-        table.setWidthPercentage(100f);
-        // Center elements in cells
-        table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
-        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
-        table.getDefaultCell().setMinimumHeight(84f);
-        table.getDefaultCell().setPadding(5);
-        table.getDefaultCell().setBorderColor(BaseColor.WHITE);
-
+        initTable();
     }
 
     @Override
@@ -35,5 +26,28 @@ public class Layout1 implements ITableLayout{
     @Override
     public Document getDocument() {
         return document;
+    }
+
+    @Override
+    public PdfPTable getNewTable() {
+        initTable();
+        return table;
+    }
+
+    @Override
+    public Document getNewDocument() {
+        return  new Document(PageSize.A4,0,0,0,0);
+    }
+
+    private void initTable(){
+        table = new PdfPTable(4);
+        table.setWidthPercentage(100f);
+        // Center elements in cells
+        table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.getDefaultCell().setVerticalAlignment(Element.ALIGN_MIDDLE);
+        //table.getDefaultCell().setMinimumHeight(84f);
+        table.getDefaultCell().setFixedHeight(84f);
+        table.getDefaultCell().setPadding(5);
+        table.getDefaultCell().setBorderColor(BaseColor.WHITE);
     }
 }
