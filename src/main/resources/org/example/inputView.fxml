@@ -10,9 +10,12 @@
    <children>
       <CheckBox fx:id="checkBox" layoutX="485.0" layoutY="323.0" mnemonicParsing="false" onAction="#setCheckBox" text="To Barcode 128" />
       <Button layoutX="485.0" layoutY="356.0" mnemonicParsing="false" onAction="#generatePDF" text="Generate PDF" />
-      <TextField fx:id="inputField" layoutX="58.0" layoutY="71.0" onAction="#onEnter" prefHeight="25.0" prefWidth="200.0" />
-      <Button layoutX="258.0" layoutY="71.0" mnemonicParsing="false" onAction="#addButton" text="add" />
-      <ListView fx:id="listView" layoutX="58.0" layoutY="100.0" prefHeight="247.0" prefWidth="200.0" />
+      <TextField fx:id="inputField" layoutX="48.0" layoutY="54.0" onAction="#onEnter" prefHeight="25.0" prefWidth="200.0" />
+      <Button layoutX="250.0" layoutY="54.0" mnemonicParsing="false" onAction="#addButton" prefHeight="25.0" prefWidth="56.0" text="add" />
+      <ListView fx:id="listView" layoutX="48.0" layoutY="83.0" prefHeight="229.0" prefWidth="200.0" />
       <Button layoutX="14.0" layoutY="356.0" mnemonicParsing="false" onAction="#switchToStartView" text="Back" />
+      <Button layoutX="250.0" layoutY="83.0" mnemonicParsing="false" onAction="#removeData" text="remove" />
+      <Button fx:id="clearBtn" layoutX="250.0" layoutY="113.0" mnemonicParsing="false" onAction="#clearList" prefHeight="25.0" prefWidth="56.0" text="clear" />
+      <Button layoutX="250.0" layoutY="144.0" mnemonicParsing="false" text="import .csv" onAction="#readCSV" />
    </children>
 </AnchorPane>
