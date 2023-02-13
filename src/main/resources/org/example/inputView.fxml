@@ -16,6 +16,6 @@
       <Button layoutX="14.0" layoutY="356.0" mnemonicParsing="false" onAction="#switchToStartView" text="Back" />
       <Button layoutX="250.0" layoutY="83.0" mnemonicParsing="false" onAction="#removeData" text="remove" />
       <Button fx:id="clearBtn" layoutX="250.0" layoutY="113.0" mnemonicParsing="false" onAction="#clearList" prefHeight="25.0" prefWidth="56.0" text="clear" />
-      <Button layoutX="250.0" layoutY="144.0" mnemonicParsing="false" text="import .csv" onAction="#readCSV" />
+      <Button layoutX="250.0" layoutY="144.0" mnemonicParsing="false" onAction="#readCSV" text="import .csv" />
    </children>
 </AnchorPane>
