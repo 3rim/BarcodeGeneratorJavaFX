@@ -126,7 +126,7 @@ public class InputViewController implements Initializable {
             } else {
                 listView.getItems().forEach(table::addCell);
             }
-            /*  Fill the row if there are less cells than columns. Otherwise no pages exception is thrown
+            /*  Fill the row if there are fewer cells than column otherwise no pages exception is thrown
                 Furthermore; If a table has e.g 4 Columns but in the last row are less than 4 Cells filled with Data
                 it would not fill that row with data -->therefore "completeRow()" fills empty Cells to it!
              */

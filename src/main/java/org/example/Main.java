@@ -1,7 +1,7 @@
 package org.example;
 
 /**
- * https://www.youtube.com/watch?v=EyYb0GmtEX4
+ * <a href="https://www.youtube.com/watch?v=EyYb0GmtEX4">...</a>
  * Jar files dont like having running a class that extending something else
  */
 public class Main {
