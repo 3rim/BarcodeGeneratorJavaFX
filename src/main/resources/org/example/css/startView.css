@@ -18,3 +18,7 @@
     -fx-alignment: center;
     -fx-spacing: 10;
 }
+#footer{
+    -fx-background-color: #3B5264;
+    -fx-alignment: center;
+}

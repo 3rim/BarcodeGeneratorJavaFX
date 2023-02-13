@@ -7,4 +7,13 @@
 }
 #inputField{
     -fx-background-color: #A8D0DB;
+    -fx-prompt-text-fill: black;
+}
+
+#footer{
+    -fx-background-color: #3B5264;
+    -fx-alignment: center;
+}
+#checkBox{
+
 }

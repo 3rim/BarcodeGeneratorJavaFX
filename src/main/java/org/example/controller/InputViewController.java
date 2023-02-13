@@ -35,6 +35,8 @@ public class InputViewController implements Initializable {
     @FXML
     public Button clearBtn;
     @FXML
+    public Label footer;
+    @FXML
     private ListView<String> listView;
     @FXML
     private TextField inputField;

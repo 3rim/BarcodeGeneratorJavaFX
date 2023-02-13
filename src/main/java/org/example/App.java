@@ -21,6 +21,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("startView"), 600, 400);
         scene.getStylesheets().add(loadCSS("startView"));
+        stage.setTitle("Barcode/-Text Generator");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
