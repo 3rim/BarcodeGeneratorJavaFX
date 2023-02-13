@@ -1,0 +1,10 @@
+.root{
+    -fx-background-color: #6A8BA6;
+}
+
+#listView{
+    -fx-background-color: #ffffff;
+}
+#inputField{
+    -fx-background-color: #A8D0DB;
+}
