@@ -18,6 +18,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.erim.components.ToggleSwitch;
 import org.example.App;
 import org.example.model.ITableLayout;
 import org.example.model.TableFactory;
@@ -42,6 +43,8 @@ public class InputViewController implements Initializable {
     private TextField inputField;
     @FXML
     private CheckBox checkBox;
+    @FXML
+    private ToggleSwitch toggleSwitch;
 
     private final TableFactory tableFactory = new TableFactory();
     //TODO a: If tableLayout is not static tableLayout becomes null, why?
@@ -89,10 +92,10 @@ public class InputViewController implements Initializable {
         listView.getItems().clear();
     }
 
-    @FXML
+    /*@FXML
     private void setCheckBox(ActionEvent event) {
         toBarcode = checkBox.isSelected();
-    }
+    }*/
 
     @FXML
     private void generatePDF() {
@@ -117,9 +120,10 @@ public class InputViewController implements Initializable {
             document.open();
             PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
 
-            if (toBarcode) {
+            if (toggleSwitch.switchedOnProperty().get()) {
                 Barcode128 barcode128 = new Barcode128();
                 barcode128.setCodeType(Barcode128.CODE128);
+                barcode128.setBarHeight(35f);
                 for (String data : listView.getItems()) {
                     barcode128.setCode(data);
                     Image code128Img = barcode128.createImageWithBarcode(pdfContentByte, null, null);
@@ -168,7 +172,7 @@ public class InputViewController implements Initializable {
             StringBuilder stringBuilder = new StringBuilder();
             for (String[] row : allData) {
                 for (String cell : row) {
-                    stringBuilder.append(cell).append("\t");
+                    stringBuilder.append(cell).append(" ");
                 }
                 listView.getItems().add(stringBuilder.toString());
                 //reset stringBuilder

@@ -3,6 +3,7 @@ module org.example {
     requires javafx.fxml;
     requires itextpdf;
     requires opencsv;
+    requires org.erim.components;
 
     opens org.example to javafx.fxml;
     opens org.example.controller to javafx.fxml;

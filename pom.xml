@@ -34,6 +34,11 @@
             <artifactId>opencsv</artifactId>
             <version>4.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.erim.components</groupId>
+            <artifactId>CustomJavaFXComponents</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 
