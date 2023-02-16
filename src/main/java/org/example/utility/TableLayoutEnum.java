@@ -4,7 +4,7 @@ package org.example.utility;
 /**
  * Enum for the different TableLayouts
  */
-public enum TableLayout {
-    LAYOUT1,
-    LAYOUT2;
+public enum TableLayoutEnum {
+    LYRECO_A4,
+    AVERY_A4
 }

@@ -1,7 +1,10 @@
 package org.example.model;
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPTable;
+
+import java.util.List;
 
 /**
  * The size of PDF pages is not expressed in pixels but in points.
@@ -22,5 +25,7 @@ public interface ITableLayout {
 
     PdfPTable getNewTable();
     Document getNewDocument();
+
+     void add(List<String> values, PdfContentByte pdfContentByte, boolean toBarcode);
 
 }

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import org.example.App;
+import org.example.utility.TableLayoutEnum;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,7 @@ public class StartViewController  implements Initializable {
         App.setRoot("inputView");
     }
 
+    @Deprecated
     @FXML
     private void handleButtonClick(ActionEvent actionEvent) throws IOException {
         String text = ((Button)actionEvent.getSource()).getText();
@@ -27,10 +29,22 @@ public class StartViewController  implements Initializable {
         switchToInputView();
     }
 
+    @FXML
+    private void averyA4Button() throws IOException {
+        inputViewController.createLayout(TableLayoutEnum.AVERY_A4);
+        switchToInputView();
+    }
+
+    @FXML
+    private void lyrecoA4Button() throws IOException {
+        inputViewController.createLayout(TableLayoutEnum.LYRECO_A4);
+        switchToInputView();
+    }
+
     /**
      * TODO: Is called everytime startView is switched to! Why so?
-     * @param url
-     * @param resourceBundle
+     * @param url -
+     * @param resourceBundle -
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

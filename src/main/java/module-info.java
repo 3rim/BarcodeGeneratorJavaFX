@@ -10,6 +10,7 @@ module org.example {
 
     exports org.example;
     exports org.example.controller;
+    exports org.example.utility;
 
     /**
      * https://stackoverflow.com/questions/67372505/java-lang-illegalaccessexception-module-javafx-base-cannot-access-class-sample

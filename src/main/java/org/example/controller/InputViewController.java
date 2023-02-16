@@ -2,8 +2,6 @@ package org.example.controller;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.pdf.Barcode128;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -29,6 +27,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import com.opencsv.CSVReader;
+import org.example.utility.TableLayoutEnum;
 
 public class InputViewController implements Initializable {
     private static String FILE = "src/main/resources/FirstPdf.pdf";
@@ -120,25 +119,14 @@ public class InputViewController implements Initializable {
             document.open();
             PdfContentByte pdfContentByte = pdfWriter.getDirectContent();
 
-            if (toggleSwitch.switchedOnProperty().get()) {
-                Barcode128 barcode128 = new Barcode128();
-                barcode128.setCodeType(Barcode128.CODE128);
-                barcode128.setBarHeight(35f);
-                for (String data : listView.getItems()) {
-                    barcode128.setCode(data);
-                    Image code128Img = barcode128.createImageWithBarcode(pdfContentByte, null, null);
-                    table.addCell(code128Img);
-                }
-            } else {
-                listView.getItems().forEach(table::addCell);
-            }
+            tableLayout.add(listView.getItems(),pdfContentByte,toggleSwitch.switchedOnProperty().get());
+
             /*  Fill the row if there are fewer cells than column otherwise no pages exception is thrown
                 Furthermore; If a table has e.g 4 Columns but in the last row are less than 4 Cells filled with Data
                 it would not fill that row with data -->therefore "completeRow()" fills empty Cells to it!
              */
+            //TODO refactor into Models?
             table.completeRow();
-
-            //listView.getItems().clear();
 
             document.add(table);
             document.close();
@@ -183,7 +171,11 @@ public class InputViewController implements Initializable {
         }
     }
 
+    @Deprecated
     public void createLayout(String layoutType) {
+        tableLayout = tableFactory.createTable("LAYOUT1");
+    }
+    public void createLayout(TableLayoutEnum layoutType) {
         tableLayout = tableFactory.createTable(layoutType);
     }
 

@@ -16,8 +16,8 @@
       </Text>
       <VBox fx:id="buttonBox" layoutX="223.0" layoutY="106.0" prefHeight="146.0" prefWidth="153.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#handleButtonClick" text="Layout1" />
-            <Button mnemonicParsing="false" onAction="#handleButtonClick" text="Layout2" />
+            <Button mnemonicParsing="false" onAction="#lyrecoA4Button" text="Lyreco A4 52,5 x 29,7 mm" />
+            <Button mnemonicParsing="false" onAction="#averyA4Button" prefHeight="25.0" prefWidth="157.0" text="Avery A4 63,5 x 33,9 mm" />
          </children>
       </VBox>
       <Label fx:id="footer" alignment="CENTER" layoutY="380.0" prefHeight="20.0" prefWidth="600.0" text="© Erim Medi" textFill="WHITE" />
