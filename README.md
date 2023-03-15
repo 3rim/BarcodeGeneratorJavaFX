@@ -1,6 +1,11 @@
 # BarcodeGeneratorJavaFX
-I created this application for my current work. We had to add barcodes to over 1000 iPads to inventory them. <br>
+I created this application for my current work (work in progress :smile: ). We had to add barcodes to over 1000 iPads to inventory them. <br>
 Currently it only supports two layouts and either text to text or text to Barcode128. 
+<ul>
+  <li>JavaFX 19 </li>
+  <li>iTextpdf </li>
+  <li>opencsv </li>
+</ul>
 
 <div align="center">
 
@@ -16,5 +21,14 @@ Lyreco A4(left) , Avery A4(right)
 <img src="https://user-images.githubusercontent.com/37411005/225311074-ff51fbbd-e543-441a-8c04-0c18507708f6.png" width="400" height="500">
 </div>
 
+## Usage
+Attention: I used a custom created javaFX-UI component <a href="https://github.com/3rim/CustomJavaFXComponents"> ToggleSwitch </a>. <br>
+You will need to install it to your local .m2 repo otherwise it wont work.
+
+## installation
+<a href="https://github.com/3rim/CustomJavaFXComponents"> Create executable jar file for JavaFX 11+ using Maven [2022] </a>. <br>
+```
+mvn clean install
+```
 
 
