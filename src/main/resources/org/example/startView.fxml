@@ -20,6 +20,6 @@
             <Button mnemonicParsing="false" onAction="#averyA4Button" prefHeight="25.0" prefWidth="157.0" text="Avery A4 63,5 x 33,9 mm" />
          </children>
       </VBox>
-      <Label fx:id="footer" alignment="CENTER" layoutY="380.0" prefHeight="20.0" prefWidth="600.0" text="© Erim Medi" textFill="WHITE" />
+      <Label fx:id="footer" alignment="CENTER" layoutY="380.0" prefHeight="20.0" prefWidth="600.0" text="Alpha_v0.1© Erim Medi" textFill="WHITE" />
    </children>
 </AnchorPane>
