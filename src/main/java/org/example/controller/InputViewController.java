@@ -98,6 +98,10 @@ public class InputViewController implements Initializable {
 
     @FXML
     private void generatePDF() {
+
+        if(listView.getItems().isEmpty())
+            return;
+
         try {
             //TODO a: If tableLayout is not static tableLayout becomes null, why?
 
